@@ -1,0 +1,7 @@
+/**
+* This file gets imported in vue.config.js, and thus auto-injected into every single component.
+* Make sure none of the imported CSS files below contain any "rendered CSS", or you will have
+* a messy debugger.
+ */
+
+@import 'config/colors';

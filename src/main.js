@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
 import { initializeApp, getApps } from 'firebase/app';
+import 'normalize.css';
+import '@/styles/style.scss';
 import App from './App.vue';
 import router from './router';
 import store from './store';
