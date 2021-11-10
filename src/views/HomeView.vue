@@ -14,5 +14,19 @@ export default {
   components: {
     HelloWorld,
   },
+  created() {
+    // this.$watch(() => this.$route.params, () => {
+    //   // Do something on route change
+    // });
+  },
+  mounted() {
+    this.$nextTick(() => {
+      // Do something on next tick
+    });
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+// @import './src/styles/views/some-view';
+</style>

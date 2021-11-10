@@ -1,10 +1,17 @@
-import { createApp } from 'vue';
 import { initializeApp, getApps } from 'firebase/app';
+
+import { createApp, h } from 'vue';
+
+import 'what-input';
+
 import 'normalize.css';
 import '@/styles/style.scss';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import appMixins from './mixins';
+
 // ------------------------------------------------------------------------
 // ------------------------------------ 🗃️ SETUP DATABASE -----------------
 // ------------------------------------------------------------------------
@@ -26,5 +33,50 @@ if (!firebaseApps.length) {
   firebaseApp = firebaseApps[0];
 }
 
+// ------------------------------------------------------------------------
+// ------------------------------------ 🚀️ SETUP APPLICATION --------------
+// ------------------------------------------------------------------------
+const app = createApp({
+  mixins: [appMixins],
+  render() {
+    return h(App);
+  },
+});
 
-createApp(App).use(store).use(router).mount('#app');
+app.use(store);
+app.use(router);
+
+// router.beforeEach(() => {
+//   store.commit('colorScheme', { data: 'white' });
+// });
+
+// ------------------------------------------------------------------------
+// ------------------------------------ 📦 IMPORT ALL COMPONENTS ----------
+// ------------------------------------------------------------------------
+// app.component('SomeGlobalComponent', SomeGlobalComponent);
+
+// ------------------------------------------------------------------------
+// ------------------------------------ 👽️ FETCH CONTENT & MOUNT APP ------
+// ------------------------------------------------------------------------
+Promise.all([
+  // store.dispatch('fetchSettings'),
+])
+  .then(() => {
+    app.mount('#app');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('App mounted');
+    }
+  })
+  .then(() => {
+    Promise.all([
+      // store.dispatch('fetchSomeMoreStuffMaybe'),
+    ])
+      .then(() => {
+        store.commit('initDataLoaded', true);
+      });
+  })
+  .catch((error) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error when fetching data', error);
+    }
+  });
