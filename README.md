@@ -5,6 +5,8 @@ It includes, by default, basic Google authentication against a Firebase instance
 
 Folder names and project structure is somewhat compatible with [Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons) for [PHPStorm](https://www.jetbrains.com/phpstorm/), to get them pretty icons.
 
+Will display a login button to authenticate with a Google account.
+
 ## Project setup
 ### Installing GreenSock for the first time
 Then the first time that you install GSAP to a project you need to install via:
