@@ -3,7 +3,7 @@ This is my personal Vue template for "bootstrapping" projects rather quickly.
 
 It includes, by default, basic Google authentication against a Firebase instance, configured in `.env`.
 
-Folder names and project structure is somewhat compatible with [Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons) for [PHPStorm](https://www.jetbrains.com/phpstorm/), to get them pretty icons.
+Folder names and project structure is somewhat compatible with [Material Icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons) for [PHPStorm](https://www.jetbrains.com/phpstorm/), to get them [pretty icons](https://github.com/mallowigi/a-file-icon-idea#file-icons).
 
 Will display a login button to authenticate with a Google account.
 
